@@ -30,13 +30,14 @@
 
         /* Reset & BaseStyles */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
         body {
             font-family: system-ui, -apple-system, sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
             background-color: var(--light);
             overflow-x: hidden;
+            width: 100%;
         }
         h1, h2, h3, h4, h5, h6, .playfair {
             font-family: system-ui, -apple-system, sans-serif;
@@ -1419,12 +1420,15 @@
         // Smooth Scrolling for CTA links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 const target = document.querySelector(targetId);
                 if (target) {
+                    e.preventDefault();
+                    const headerHeight = document.getElementById('stickyHeader')?.offsetHeight || 74;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
                     window.scrollTo({
-                        top: target.offsetTop - 60, // sticky header offset
+                        top: targetPosition - headerHeight,
                         behavior: 'smooth'
                     });
                 }
