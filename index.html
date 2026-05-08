@@ -604,27 +604,85 @@
             text-align: center;
             margin-top: 16px;
         }
-        .form-success {
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
             display: none;
-            text-align: center;
-            padding: 30px;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .success-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--success);
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
+
+        .popup-overlay.show {
+            opacity: 1;
+        }
+
+        .popup-content {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: translateY(20px) scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .popup-overlay.show .popup-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            margin: 0 auto 20px auto;
-            animation: bounceIn 0.5s;
+            border-radius: 50%;
+            background-color: #f1f5f9;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s;
+            line-height: 1;
         }
+        
+        .popup-close:hover {
+            background-color: #e2e8f0;
+        }
+
+        .popup-content .success-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
+            animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both 0.1s;
+        }
+        
         @keyframes bounceIn {
             0% { transform: scale(0); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
 
@@ -749,6 +807,22 @@
             .hero-actions { justify-content: flex-start; }
             .trust-bar { justify-content: flex-start; }
             
+            .trust-numbers { padding: 20px 0 !important; }
+            .trust-srm-box { padding-bottom: 1.5rem !important; }
+            .trust-srm-box h2 { 
+                font-size: 1.4rem !important; 
+                line-height: 1.3 !important; 
+                margin-bottom: 4px !important; 
+                box-sizing: border-box;
+                padding: 0 10px;
+            }
+            .trust-srm-box p { 
+                font-size: 1rem !important; 
+                margin-top: 0 !important;
+                line-height: 1.3 !important;
+                padding: 0 10px;
+            }
+
             .trust-stats-box { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
             .stat-item:not(:last-child)::after { display: none; }
             
@@ -871,7 +945,7 @@
             <div class="trust-stats-box" id="counter-section">
                 <div class="stat-item">
                     <div class="stat-icon">🎓</div>
-                    <div class="stat-number"><span class="counter" data-target="95">0</span>%</div>
+                    <div class="stat-number"><span class="counter" data-target="98">0</span>%</div>
                     <div class="stat-label">Học viên đạt 15/15 khiên Starters - Movers - Flyers</div>
                 </div>
                 <div class="stat-item">
@@ -894,7 +968,7 @@
     </section>
 
     <!-- SECTION 3: HỆ THỐNG KHÓA HỌC -->
-    <section id="courses" class="section bg-light" style="padding-bottom: 2rem;">
+    <section id="courses" class="section bg-light" style="padding-top: 1rem; padding-bottom: 2rem;">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title playfair">HỆ THỐNG ĐÀO TẠO TOÀN DIỆN TẠI SOL</h2>
@@ -1048,7 +1122,7 @@
                 <div class="feature-card bg-orange-light">
                     <h3 class="feature-title playfair"><span style="font-size: 1.8rem">🥇</span> Thành Tích Vượt Trội</h3>
                     <ul class="card-bullets">
-                        <li>Hơn 95% học viên đạt 15/15 khiên các chứng chỉ Starters - Movers - Flyers</li>
+                        <li>Hơn 98% học viên đạt 15/15 khiên các chứng chỉ Starters - Movers - Flyers</li>
                         <li>Đậu vào các trường điểm</li>
                         <li>Lấy lại căn bản cho học sinh yếu</li>
                     </ul>
@@ -1158,13 +1232,6 @@
                         <p class="form-disclaimer">Thông tin của bạn được bảo mật tuyệt đối.</p>
                     </form>
                 </div>
-
-                <div id="success-wrap" class="form-success">
-                    <div class="success-icon">&#10003;</div>
-                    <h3 class="playfair">Cảm ơn bạn!</h3>
-                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 10px;">Tư vấn viên SOL sẽ liên hệ trong vòng 24 giờ.</p>
-                    <button type="button" class="btn btn-outline" style="border-color: #cbd5e1; color: var(--navy); margin-top: 20px;" onclick="resetForm()">Quay lại</button>
-                </div>
             </div>
         </div>
     </section>
@@ -1203,6 +1270,18 @@
         </div>
     </footer>
 
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="success-icon">&#10003;</div>
+            <h3 class="playfair" style="font-size: 2rem; color: var(--navy); margin-bottom: 10px;">Đăng ký thành công!</h3>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px;">Cảm ơn bạn! Tư vấn viên SOL sẽ liên hệ trong thời gian sớm nhất.</p>
+            <div id="zalo-redirect-container"></div>
+            <button type="button" class="btn btn-outline" style="border-color: #cbd5e1; color: var(--navy); margin-top: 15px; width: 100%; border-radius: 2rem; font-weight: 600;" onclick="closePopup()">Đóng lại</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         // Form Submit Handler (No reload)
@@ -1237,25 +1316,26 @@
                 const data = await response.json();
                 
                 if (data.success) {
-                    document.getElementById('form-wrap').style.display = 'none';
-                    document.getElementById('success-wrap').style.display = 'block';
+                    const popup = document.getElementById('successPopup');
+                    popup.style.display = 'flex';
+                    // Trigger reflow
+                    popup.offsetHeight;
+                    popup.classList.add('show');
                     
                     // Add link to zalo group if provided
+                    const zaloContainer = document.getElementById('zalo-redirect-container');
+                    zaloContainer.innerHTML = '';
+                    
                     if (data.redirectUrl) {
-                        const successWrap = document.getElementById('success-wrap');
-                        // create redirect buttons if not exists
-                        let redirectBtn = document.getElementById('zalo-redirect-btn');
-                        if (!redirectBtn) {
-                            redirectBtn = document.createElement('a');
-                            redirectBtn.id = 'zalo-redirect-btn';
-                            redirectBtn.className = 'btn btn-primary';
-                            redirectBtn.style.marginTop = '15px';
-                            redirectBtn.style.display = 'inline-block';
-                            redirectBtn.innerHTML = 'Tham gia nhóm Zalo tư vấn';
-                            redirectBtn.target = '_blank';
-                            successWrap.insertBefore(redirectBtn, successWrap.querySelector('button'));
-                        }
+                        const redirectBtn = document.createElement('a');
+                        redirectBtn.className = 'btn btn-primary';
+                        redirectBtn.style.display = 'block';
+                        redirectBtn.style.width = '100%';
+                        redirectBtn.style.marginBottom = '10px';
+                        redirectBtn.innerHTML = '👉 Nhấn để Tham gia nhóm Zalo hướng dẫn';
+                        redirectBtn.target = '_blank';
                         redirectBtn.href = data.redirectUrl;
+                        zaloContainer.appendChild(redirectBtn);
                         
                         // Auto redirect after 3 seconds
                         setTimeout(() => {
@@ -1274,11 +1354,14 @@
             }
         }
 
-        // Form Reset Handler
-        function resetForm() {
+        // Popup Close Handler
+        function closePopup() {
+            const popup = document.getElementById('successPopup');
+            popup.classList.remove('show');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 300);
             document.getElementById('voucherForm').reset();
-            document.getElementById('form-wrap').style.display = 'block';
-            document.getElementById('success-wrap').style.display = 'none';
         }
 
         // Number Counter Animation on scroll
