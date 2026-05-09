@@ -130,7 +130,7 @@
         .sp2-avatar {
             width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center;
             justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
-        }
+         background: var(--blue-border); color: #fff; }
         .sp2-user-info { flex-grow: 1; }
         .sp2-name { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 2px; }
         .sp2-role { font-size: 0.8rem; color: var(--text-muted); }
@@ -175,25 +175,31 @@
         /* -------------------------------------------------------------
            [3] ĐIỂM CHẠM 3 — MINI BLOCK TRƯỚC FORM ĐĂNG KÝ 
         ------------------------------------------------------------- */
-        .sp3-preform { max-width: 1000px; margin: 0 auto; text-align: center; }
+        
+        @keyframes pulse-attention {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
+            50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(234, 179, 8, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+        }
+        .pulse-attention { animation: pulse-attention 2s infinite; }
+        .sp3-preform { max-width: 1000px; margin: 0 auto 32px; text-align: center; padding: 20px 0; }
+        .sp3-preform .sp3-title { color: var(--navy); font-size: 1.5rem; }
+
         .sp3-title { color: var(--navy); font-weight: 700; font-size: 1.5rem; margin-bottom: 20px; }
         .sp3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         @media (max-width: 900px) { .sp3-grid { grid-template-columns: 1fr; } }
         
         .sp3-card {
-            background: var(--navy); border-radius: 12px; padding: 20px; color: #fff;
-            text-align: left; box-shadow: 0 10px 25px -5px rgba(10,34,64,0.2);
+            background: rgba(37, 99, 235, 0.4); border-radius: 12px; border: none; padding: 24px 20px; color: var(--navy);
+            text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
         .sp3-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .sp3-avatar {
-            width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.15);
-            display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
-        }
+        .sp3-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
         .sp3-name { font-weight: 700; font-size: 0.95rem; }
-        .sp3-quote { font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; color: rgba(255,255,255,0.9); }
+        .sp3-quote { font-size: 1.1rem; line-height: 1.6; margin-bottom: 16px; font-weight: 500; color: var(--navy); }
         .sp3-result {
-            display: inline-block; background: rgba(52, 211, 153, 0.2); color: #6ee7b7;
-            padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;
+            display: inline-block; background: rgba(255, 255, 255, 0.8); color: var(--navy);
+            padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 800; margin-top: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
     </style>
@@ -210,9 +216,9 @@
         
         <!-- PHIÊN BẢN C (Active): Dành cho phụ huynh muốn con thi Cambridge -->
         <div class="hero-mini-quote">
-            <div class="hero-mini-quote-avatar">AQ</div>
-            <div class="hero-mini-quote-content">
-                Mừng rớt nước mắt, cuậu cày 4 tháng ở SOL cuối cùng cũng <b>đậu Cambridge Movers với 15 khiên</b>. Trộm vía đổi trung tâm theo kịp lộ trình!
+            <div class="hero-mini-quote-avatar" style="padding: 0; overflow: hidden; background: none; border: 2px solid #fff;"><img src="https://images.pexels.com/photos/718261/pexels-photo-718261.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop" style="width:100%; height:100%; object-fit: cover;"></div>
+                    <div class="hero-mini-quote-content">
+                Mừng rớt nước mắt, cuậu cày 4 tháng ở SOL cuối cùng cũng <b>đậu Cambridge Movers với 15 khiên</b>. Trộm vía được giới thiệu biết đến SOL!!
                 <span class="hero-mini-quote-author">— Anh Quốc Quân, ba bé Bin (10 tuổi)</span>
             </div>
         </div>
@@ -220,8 +226,8 @@
         <!-- PHIÊN BẢN A (A/B Test - Commented out): Dành cho phụ huynh có con nhút nhát -->
         <!--
         <div class="hero-mini-quote">
-            <div class="hero-mini-quote-avatar">TT</div>
-            <div class="hero-mini-quote-content">
+            <div class="hero-mini-quote-avatar" style="padding: 0; overflow: hidden; background: none; border: 2px solid #fff;"><img src="https://images.pexels.com/photos/718261/pexels-photo-718261.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop" style="width:100%; height:100%; object-fit: cover;"></div>
+                    <div class="hero-mini-quote-content">
                 Ngày xưa Ken nhát lắm, lúc nào rụt rè. Mới học SOL 3 tháng mà hôm qua <b>tự tin chào hỏi bác Tây ở siêu thị</b>, vợ chồng tôi bất ngờ quá.
                 <span class="hero-mini-quote-author">— Chị Thu Thảo, mẹ bé Ken (9 tuổi)</span>
             </div>
@@ -231,8 +237,8 @@
         <!-- PHIÊN BẢN B (A/B Test - Commented out): Dành cho người lớn đi làm -->
         <!--
         <div class="hero-mini-quote">
-            <div class="hero-mini-quote-avatar">TĐ</div>
-            <div class="hero-mini-quote-content">
+            <div class="hero-mini-quote-avatar" style="padding: 0; overflow: hidden; background: none; border: 2px solid #fff;"><img src="https://images.pexels.com/photos/718261/pexels-photo-718261.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop" style="width:100%; height:100%; object-fit: cover;"></div>
+                    <div class="hero-mini-quote-content">
                 Bị giao dự án Úc, hoảng quá phải tìm chỗ luyện nói gấp. Mình mang luôn slide công ty lên luyện cường độ cao, <b>tuần trước báo cáo mượt mà</b>.
                 <span class="hero-mini-quote-author">— Anh Tiến Đạt, Kỹ sư phần mềm</span>
             </div>
@@ -264,7 +270,11 @@
                 
                 <!-- 1. Adult -->
                 <div class="sp2-card" data-category="adult">
-                    <div class="sp2-card-header">\n                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;"></div>\n                        <div class="sp2-user-info">\n                            <div class="sp2-name">Anh Tuấn Anh</div>
+                    <div class="sp2-card-header">
+                        
+                        <div class="sp2-avatar">A</div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Anh Tuấn Anh</div>
                             <div class="sp2-role">Ba bé Thỏ (9 tuổi)</div>
                         </div>
                         <div class="sp2-tag tag-kids">SOL Origin</div>
@@ -294,24 +304,24 @@
          ========================================== -->
     <h2 style="color:var(--cobalt); margin-top:60px;">3. Mini Block Trước Form Đăng Ký</h2>
     <div class="sp3-preform">
-        <div class="sp3-title">Hơn 5.000 phụ huynh & học viên đã tin tưởng SOL</div>
+        <div class="sp3-title">Phụ huynh & học viên đã tin tưởng SOL</div>
         <div class="sp3-grid">
             
             <div class="sp3-card">
                 <div class="sp3-card-header">
-                    <div class="sp3-avatar">KL</div>
-                    <div class="sp3-name">Khánh Linh</div>
+                            <div class="sp3-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1; background: none; color: transparent;"><img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop" alt="Khánh Linh" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                            <div class="sp3-name">Khánh Linh</div>
                 </div>
                 <div class="sp3-quote playfair" style="font-style: italic;">
-                    "Hồi xưa học rào rào mà mở miệng là cứng ngắc. Giờ vô lớp xong tự tin gọi điện check đơn hàng với supplier Trung Quốc luôn rồi."
+                    "Hồi xưa học rào rào mà mở miệng là cứng ngắc. Giờ vô lớp xong tự tin gọi điện check đơn hàng với supplier Canada luôn rồi."
                 </div>
                 <div class="sp3-result">Giao tiếp trôi chảy với đối tác</div>
             </div>
 
             <div class="sp3-card">
                 <div class="sp3-card-header">
-                    <div class="sp3-avatar">BT</div>
-                    <div class="sp3-name">Chị Bích Trâm</div>
+                            <div class="sp3-avatar">T</div>
+                            <div class="sp3-name">Chị Bích Trâm</div>
                 </div>
                 <div class="sp3-quote playfair" style="font-style: italic;">
                     "Căng thẳng vì sắp nộp hồ sơ mà chứng chỉ chưa có. Thầy cô kèm sát nên kỳ rồi nhận được băng 15 khiên mẹ rớt nước mắt."
@@ -321,11 +331,11 @@
 
             <div class="sp3-card">
                 <div class="sp3-card-header">
-                    <div class="sp3-avatar">HP</div>
-                    <div class="sp3-name">Hoàng Phát</div>
+                            <div class="sp3-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1; background: none; color: transparent;"><img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop" alt="Hoàng Phát" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                            <div class="sp3-name">Hoàng Phát</div>
                 </div>
                 <div class="sp3-quote playfair" style="font-style: italic;">
-                    "Trường đòi B2 mà hoang mang. Luyện cấp tốc đúng form đề, cầm phiếu điểm B2 mém khóc giữa sân trường."
+                    "Chỗ làm đòi B2 mà hoang mang. Luyện cấp tốc đúng form đề, cầm phiếu điểm B2 mém bật khóc."
                 </div>
                 <div class="sp3-result">Lấy B2 thành công đúng hạn</div>
             </div>
