@@ -225,17 +225,18 @@
         .trust-numbers-container {
             background-color: var(--navy);
             border-radius: 1.5rem;
-            padding: 2.5rem 1.5rem;
+            padding: 2rem 1.5rem;
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
             color: white;
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 0.5rem;
         }
         .trust-srm-box {
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 2.5rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
         }
         .trust-stats-box {
             display: grid;
@@ -522,7 +523,7 @@
         /* SECTION 7: Form Section */
         .form-section {
             background-color: var(--light);
-            padding: 100px 0;
+            padding: 40px 0 100px 0;
             position: relative;
         }
         .form-container {
@@ -531,15 +532,20 @@
             margin: 0 auto;
             border-radius: 1rem;
             padding: 40px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25), 0 0 25px rgba(37, 99, 235, 0.5);
             color: var(--text-dark);
             position: relative;
             z-index: 2;
             border-top: 4px solid var(--cobalt);
+            animation: form-glow 2s infinite alternate;
+        }
+        @keyframes form-glow {
+            from { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25), 0 0 15px rgba(37, 99, 235, 0.3); }
+            to { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25), 0 0 35px rgba(37, 99, 235, 0.7); }
         }
         .form-container h3 {
             color: var(--navy);
-            font-size: 1.875rem;
+            font-size: 3.75rem;
             text-align: center;
             margin-bottom: 8px;
             font-weight: 900;
@@ -746,21 +752,21 @@
         .footer {
             background-color: var(--slate-100);
             color: var(--text-muted);
-            padding: 60px 0 20px;
+            padding: 30px 0 20px;
             border-top: 1px solid #e2e8f0;
         }
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 40px;
+            gap: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 10px;
         }
         .footer-logo {
             font-size: 1.5rem;
             color: var(--navy);
-            margin-bottom: 16px;
+            margin-bottom: 4px;
             font-weight: 900;
             font-style: italic;
             letter-spacing: -0.05em;
@@ -769,7 +775,7 @@
             font-size: 1rem;
             font-weight: 500;
             color: var(--text-muted);
-            margin-bottom: 24px;
+            margin-bottom: 4px;
         }
         .footer-slogan {
             font-size: 1.125rem;
@@ -837,13 +843,14 @@
         }
         @media (max-width: 768px) {
             html { font-size: 15px; }
+            .form-container h3 { font-size: 2rem !important; }
             .hero { padding-top: 85px; padding-bottom: 40px; min-height: auto; }
             .hero .container { flex-direction: column; text-align: left; }
             .hero-actions { justify-content: flex-start; }
             .trust-bar { justify-content: flex-start; }
             
             .trust-numbers { padding: 20px 0 !important; }
-            .trust-srm-box { padding-bottom: 1.5rem !important; }
+            .trust-srm-box { padding-bottom: 0.5rem !important; }
             .trust-srm-box h2 { 
                 font-size: 1.4rem !important; 
                 line-height: 1.3 !important; 
@@ -858,7 +865,7 @@
                 padding: 0 10px;
             }
 
-            .trust-stats-box { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+            .trust-stats-box { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .stat-item:not(:last-child)::after { display: none; }
             
             .courses-grid { grid-template-columns: 1fr; }
@@ -877,6 +884,187 @@
             .voucher-grid { grid-template-columns: 1fr; }
             .trust-stats-box { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2rem; }
+        }
+
+        /* -------------------------------------------------------------
+           [1] ĐIỂM CHẠM 1 — MINI QUOTE TRONG HERO SECTION 
+        ------------------------------------------------------------- */
+        .hero-mini-quote {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #ffffff;
+            padding: 16px 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            text-align: left;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .hero-mini-quote-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--orange);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+            box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
+        }
+        .hero-mini-quote-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: var(--navy);
+            font-style: italic;
+            position: relative;
+        }
+        .hero-mini-quote-content::before {
+            content: '\201C';
+            font-size: 2.5rem;
+            color: rgba(15, 23, 42, 0.1);
+            position: absolute;
+            left: -18px;
+            top: -12px;
+            line-height: 1;
+        }
+        .hero-mini-quote-author {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 10px;
+            font-style: normal;
+        }
+
+        /* -------------------------------------------------------------
+           [2] ĐIỂM CHẠM 2 — BLOCK TESTIMONIALS ĐẦY ĐỦ 
+        ------------------------------------------------------------- */
+        .sp2-section { padding: 20px 0 60px 0; background: #eef2f6; }
+        .sp2-section .container { max-width: 1536px; width: 100%; padding: 0 20px; }
+        .sp2-header { text-align: center; margin-bottom: 24px; }
+        .sp2-title { font-size: 2.2rem; margin-bottom: 10px; color: var(--navy); }
+        .sp2-subtitle { color: var(--cobalt); font-size: 1.1rem; font-weight: 600; }
+        
+        .sp2-filter-bar {
+            display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 auto 32px;
+            background: rgba(37, 99, 235, 0.3); padding: 8px; border-radius: 30px; max-width: fit-content;
+            animation: pulse-blue 1.5s infinite alternate;
+        }
+        @keyframes pulse-blue { from { box-shadow: 0 0 0 rgba(37,99,235,0); } to { box-shadow: 0 0 25px rgba(37,99,235,0.5); transform: scale(1.02); } }
+        .sp2-filter-btn {
+            border: 2px solid transparent;
+            animation: border-blink 1.5s infinite alternate;
+            background: transparent; padding: 10px 20px; border-radius: 30px;
+            font-size: 0.95rem; font-weight: 600; color: #475569; cursor: pointer;
+            transition: all 0.3s ease; font-family: inherit;
+        }
+        
+        @keyframes border-blink {
+            0% { border-color: rgba(37, 99, 235, 0.2); }
+            100% { border-color: rgba(37, 99, 235, 1); box-shadow: 0 0 10px rgba(37, 99, 235, 0.5); }
+        }
+
+        .sp2-filter-btn:hover { color: var(--navy); }
+        .sp2-filter-btn.active {
+            background: #fff; color: var(--navy);
+            box-shadow: 0 4px 10px rgba(10, 34, 64, 0.1);
+        }
+
+        .sp2-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 0 20px; max-width: 1536px; margin: 0 auto; width: 100%;
+        }
+        @media (max-width: 991px) { .sp2-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 767px) { 
+            .sp2-grid { grid-template-columns: 1fr; width: 100%; padding: 0; } 
+            .sp2-filter-bar { width: 100%; max-width: 100%; border-radius: 16px; padding: 10px; }
+            .sp2-filter-btn { padding: 8px 12px; font-size: 0.9rem; }
+        }
+
+        .sp2-card {
+            background: #fff; border: none; border-top: 4px solid var(--cobalt); border-radius: 12px; padding: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex; flex-direction: column;
+        }
+        .sp2-card.sp-hidden { display: none; }
+        .sp2-card.sp-highlight {
+            border-color: var(--orange); box-shadow: 0 8px 25px rgba(245, 166, 35, 0.15); transform: translateY(-4px);
+        }
+
+        .sp2-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .sp2-avatar {
+            width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
+        }
+        .sp2-user-info { flex-grow: 1; }
+        .sp2-name { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 2px; }
+        .sp2-role { font-size: 0.8rem; color: var(--text-muted); }
+        .sp2-tag { font-size: 0.75rem; font-weight: 700; padding: 6px 10px; border-radius: 6px; white-space: nowrap; }
+
+        .tag-adult { background: #E6F1FB; color: #0C447C; }
+        .tag-kids { background: #E1F5EE; color: #085041; }
+        .tag-cam { background: #FAEEDA; color: #633806; }
+        .tag-vstep { background: #EEEDFE; color: #3C3489; }
+
+        .sp2-pain {
+            background: #f8fafc; padding: 12px 16px; border-radius: 8px; font-size: 0.9rem;
+            color: var(--text-muted); font-style: italic; margin-bottom: 16px;
+            border-left: 3px solid #cbd5e1; display: flex; gap: 8px; align-items: flex-start;
+        }
+        .sp2-pain svg { flex-shrink: 0; margin-top: 2px; color: #94a3b8; }
+
+        .sp2-quote {
+            font-size: 1.05rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px;
+            flex-grow: 1; position: relative; padding-left: 12px;
+        }
+        .sp2-quote::before {
+            content: '\201C'; font-family: 'Playfair Display', serif; font-size: 2.5rem;
+            color: #e2e8f0; position: absolute; left: -10px; top: -5px; line-height: 1;
+        }
+
+        .sp2-result {
+            display: inline-flex; align-items: center; background: #dcfce7; color: #166534;
+            padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+            margin-bottom: 16px; gap: 6px; align-self: flex-start; line-height: 1.2;
+        }
+
+        .sp2-stars { color: var(--orange); font-size: 1rem; letter-spacing: 2px; }
+
+        .sp2-load-more {
+            display: block; margin: 40px auto 0; background: transparent; border: 2px solid var(--navy);
+            color: var(--navy); padding: 12px 32px; border-radius: 30px; font-weight: 700;
+            cursor: pointer; transition: all 0.3s ease; font-size: 1rem;
+        }
+        .sp2-load-more:hover { background: var(--navy); color: #fff; }
+
+        /* -------------------------------------------------------------
+           [3] ĐIỂM CHẠM 3 — MINI BLOCK TRƯỚC FORM ĐĂNG KÝ 
+        ------------------------------------------------------------- */
+        .sp3-preform { max-width: 1000px; margin: 0 auto 32px; text-align: center; }
+        .sp3-title { color: var(--navy); font-weight: 700; font-size: 1.25rem; margin-bottom: 20px; }
+        .sp3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; background: var(--navy); padding: 24px; border-radius: 12px; }
+        @media (max-width: 900px) { .sp3-grid { grid-template-columns: 1fr; } }
+        
+        .sp3-card {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 16px; color: #fff;
+            text-align: left;
+        }
+        .sp3-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .sp3-avatar {
+            width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0;
+        }
+        .sp3-name { font-weight: 700; font-size: 0.9rem; }
+        .sp3-quote { font-size: 0.85rem; line-height: 1.4; margin-bottom: 12px; color: rgba(255,255,255,0.9); }
+        .sp3-result {
+            display: inline-block; background: rgba(52, 211, 153, 0.2); color: #6ee7b7;
+            padding: 4px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 700;
         }
     </style>
 </head>
@@ -913,7 +1101,7 @@
                                 <div class="voucher-num" style="margin-bottom: 0; width: 2.5rem; height: 2.5rem; font-size: 1.2rem;">01</div>
                                 <div class="voucher-title" style="margin-bottom: 0; font-size: 1.1rem;">Elite Express</div>
                             </div>
-                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; white-space: nowrap;">Thanh niên</span>
+                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; white-space: nowrap;">Thanh niên</span>
                         </div>
                         <div class="voucher-desc" style="font-size: 0.88rem;">Tiếng Anh giao tiếp &middot; Phương pháp SRM &middot; Công việc & thuyết trình</div>
                     </div>
@@ -923,7 +1111,7 @@
                                 <div class="voucher-num" style="margin-bottom: 0; width: 2.5rem; height: 2.5rem; font-size: 1.2rem;">02</div>
                                 <div class="voucher-title" style="margin-bottom: 0; font-size: 1.1rem;">Core Speaking</div>
                             </div>
-                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; white-space: nowrap;">7-15 tuổi</span>
+                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; white-space: nowrap;">7-15 tuổi</span>
                         </div>
                         <div class="voucher-desc" style="font-size: 0.88rem;">Nền tảng giao tiếp &middot; Phương pháp SRM &middot; Cho thanh niên</div>
                     </div>
@@ -933,7 +1121,7 @@
                                 <div class="voucher-num" style="margin-bottom: 0; width: 2.5rem; height: 2.5rem; font-size: 1.2rem;">03</div>
                                 <div class="voucher-title" style="margin-bottom: 0; font-size: 1.1rem;">SOL Origin</div>
                             </div>
-                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; white-space: nowrap;">7-15 tuổi</span>
+                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; white-space: nowrap;">7-15 tuổi</span>
                         </div>
                         <div class="voucher-desc" style="font-size: 0.88rem;">Nền tảng tiếng Anh &middot; Phương pháp SRM &middot; Cho trẻ 7–15</div>
                     </div>
@@ -943,9 +1131,18 @@
                                 <div class="voucher-num" style="margin-bottom: 0; width: 2.5rem; height: 2.5rem; font-size: 1.2rem;">04</div>
                                 <div class="voucher-title" style="margin-bottom: 0; font-size: 1.1rem;">Cambridge Base</div>
                             </div>
-                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; white-space: nowrap;">7-15 tuổi</span>
+                            <span style="background: rgba(255, 255, 255, 0.2); padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; white-space: nowrap;">7-15 tuổi</span>
                         </div>
                         <div class="voucher-desc" style="font-size: 0.88rem;">Nền tảng Cambridge &middot; Starters &rarr; KET/PET &middot; Cho trẻ 7–15</div>
+                    </div>
+                </div>
+
+                <!-- ĐIỂM CHẠM 1: MINI QUOTE HERO SECTION -->
+                <div class="hero-mini-quote" style="margin-top: 16px;">
+                    <div class="hero-mini-quote-avatar" style="padding: 0; overflow: hidden; border: 2px solid var(--orange); background: none;"><img src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=300" alt="AQ" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                    <div class="hero-mini-quote-content">
+                        Mừng rớt nước mắt, cu cậu cày 4 tháng ở SOL cuối cùng cũng <b>đậu Cambridge Movers với 15 khiên</b>. Trộm vía đổi trung tâm theo kịp lộ trình!
+                        <span class="hero-mini-quote-author">— Anh Quốc Vinh, ba bé Tít (12 tuổi)</span>
                     </div>
                 </div>
 
@@ -1017,11 +1214,11 @@
                         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
                             <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0;">🗣️</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-grow: 1; align-content: flex-start; max-height: 5.8rem; overflow: hidden;">
-                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Người đi làm</span>
-                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Người mất gốc</span>
-                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Không tự tin giao tiếp</span>
-                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Phục vụ công việc</span>
-                                <span class="card-tag tag-yellow" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Theo nhu cầu thực tế</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Người đi làm</span>
+                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Người mất gốc</span>
+                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Không tự tin giao tiếp</span>
+                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Phục vụ công việc</span>
+                                <span class="card-tag tag-yellow" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Theo nhu cầu thực tế</span>
                             </div>
                         </div>
                         <h3 class="card-title playfair" style="margin-bottom: 0;">Anh Văn Giao Tiếp Người Lớn</h3>
@@ -1031,7 +1228,7 @@
                         <li>Thiết kế đặc biệt cho người "mất gốc", cá nhân hóa lộ trình theo năng lực.</li>
                         <li>Tập trung giao tiếp, công việc, thuyết trình dựa trên các tình huống thực tế: Viết email, soạn thảo văn bản, đàm phán với đối tác và thuyết trình chuyên nghiệp, …</li>
                         <li>Thực hành phản xạ liên tục, ứng dụng thực tế ngay sau buổi học.</li>
-                        <li>100% giáo viên nhiều năm kinh nghiệm giảng dạy giao tiếp; bằng cấp chuyên môn (Sư phạm Anh, Ngôn ngữ Anh) và chứng chỉ quốc tế TESOL với trên 3 năm kinh nghiệm giảng dạy.</li>
+                        <li>100% giáo viên trên 3 năm kinh nghiệm giảng dạy giao tiếp; bằng cấp chuyên môn (Sư phạm Anh, Ngôn ngữ Anh và chứng chỉ quốc tế TESOL)</li>
                     </ul>
                     <a href="#register-form" class="card-link">Xem thêm &#x2197;</a>
                 </div>
@@ -1042,11 +1239,11 @@
                         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
                             <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0;">🌟</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-grow: 1; align-content: flex-start;">
-                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">7–15 tuổi</span>
-                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Thuyết trình - Hùng biện</span>
-                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Các cuộc thi thuyết trình hùng biện</span>
-                                <span class="card-tag tag-yellow" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Vinh danh</span>
-                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Kỹ năng sân khấu</span>
+                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">7–15 tuổi</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Thuyết trình - Hùng biện</span>
+                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Các cuộc thi thuyết trình hùng biện</span>
+                                <span class="card-tag tag-yellow" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Vinh danh</span>
+                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Kỹ năng sân khấu</span>
                             </div>
                         </div>
                         <h3 class="card-title playfair" style="margin-bottom: 4px;">Anh văn giao tiếp trẻ em</h3>
@@ -1068,10 +1265,13 @@
                         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
                             <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0;">📚</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-grow: 1; align-content: flex-start;">
-                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">7–15 tuổi</span>
-                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Kiến thức AV nền tảng</span>
-                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Toàn diện</span>
-                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Thi Starters - Movers - Flyers - KET - PET</span>
+                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">7–15 tuổi</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Kiến thức AV nền tảng</span>
+                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Toàn diện</span>
+                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Thi Starters - Movers - Flyers - KET - PET</span>
+                                <span class="card-tag tag-yellow" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Đạt kết quả cao trong trường</span>
+                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Vững nền tảng</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Chữa mất gốc</span>
                             </div>
                         </div>
                         <h3 class="card-title playfair" style="margin-bottom: 4px;">Đào tạo Anh văn nền tảng cho thanh thiếu nhi</h3>
@@ -1092,10 +1292,10 @@
                         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
                             <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0;">🏆</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; flex-grow: 1;">
-                                <span class="card-tag tag-orange" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700;">7–15 tuổi</span>
-                                <span class="card-tag tag-cobalt" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700;">Đầu vào cấp 2</span>
-                                <span class="card-tag tag-green" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700;">Vững nền tảng</span>
-                                <span class="card-tag tag-yellow" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700;">Kết quả cao</span>
+                                <span class="card-tag tag-orange" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700;">7–15 tuổi</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700;">Đầu vào cấp 2</span>
+                                <span class="card-tag tag-green" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700;">Vững nền tảng</span>
+                                <span class="card-tag tag-yellow" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700;">Kết quả cao</span>
                             </div>
                         </div>
                         <h3 class="card-title playfair" style="margin-bottom: 4px;">Luyện thi chứng chỉ Cambridge</h3>
@@ -1118,12 +1318,12 @@
                         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
                             <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0;">📝</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; flex-grow: 1;">
-                                <span class="card-tag tag-cobalt" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700; text-transform: none;">Sinh viên & Người đi làm</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Sinh viên & Người đi làm</span>
                                 <div style="display: flex; gap: 6px; flex-wrap: nowrap;">
-                                    <span class="card-tag tag-red" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700; text-transform: none; white-space: nowrap;">Yếu lệch kỹ năng</span>
-                                    <span class="card-tag tag-yellow" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700; text-transform: none; white-space: nowrap;">Xét tốt nghiệp</span>
+                                    <span class="card-tag tag-red" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none; white-space: nowrap;">Yếu lệch kỹ năng</span>
+                                    <span class="card-tag tag-yellow" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none; white-space: nowrap;">Xét tốt nghiệp</span>
                                 </div>
-                                <span class="card-tag tag-green" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700; text-transform: none;">Phục vụ công việc</span>
+                                <span class="card-tag tag-green" style="position: static; padding: 4px 10px; font-size: 0.8rem; line-height: 1.2; font-weight: 700; text-transform: none;">Phục vụ công việc</span>
                             </div>
                         </div>
                         <h3 class="card-title playfair" style="margin-bottom: 4px;">Luyện thi VSTEP B1-B2</h3>
@@ -1141,6 +1341,318 @@
                     <a href="#register-form" class="card-link">Xem thêm &#x2197;</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ĐIỂM CHẠM 2: BLOCK TESTIMONIALS ĐẦY ĐỦ -->
+    <section class="sp2-section">
+        <div class="container">
+            <div class="sp2-header">
+                <h2 class="sp2-title playfair">Phụ huynh & học viên nói gì về SOL?</h2>
+                
+            </div>
+            
+            <div class="sp2-filter-bar" id="sp2Filter">
+                <button class="sp2-filter-btn active" data-filter="all">Tất cả</button>
+                <button class="sp2-filter-btn" data-filter="adult">Người lớn</button>
+                <button class="sp2-filter-btn" data-filter="kids">Trẻ em 7–15</button>
+                <button class="sp2-filter-btn" data-filter="cambridge">Cambridge</button>
+                <button class="sp2-filter-btn" data-filter="vstep">VSTEP</button>
+            </div>
+
+            <div class="sp2-grid" id="sp2Grid">
+                
+                <!-- 1. Adult -->
+                <div class="sp2-card" data-category="adult">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop" alt="KL" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Khánh Linh</div>
+                            <div class="sp2-role">Kế toán trưởng</div>
+                        </div>
+                        <div class="sp2-tag tag-adult">Elite Express</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Học tiếng Anh mãi không nói được, cứ mở miệng là quên hết"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Hồi xưa học ngữ pháp rào rào mà mở miệng ra là cứng ngắc. Giờ vô lớp thầy ép nói liên tục, sai đâu sửa đó ngay lập tức, không dạy lý thuyết suông. Bữa trước tự tin gọi điện đối soát công nợ với supplier Trung Quốc.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Giao tiếp trôi chảy với đối tác sau 3 tháng
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 2. Adult -->
+                <div class="sp2-card" data-category="adult">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=150&h=150&fit=crop" alt="MH" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Minh Hùng</div>
+                            <div class="sp2-role">Kỹ sư phần mềm</div>
+                        </div>
+                        <div class="sp2-tag tag-adult">Elite Express</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Cần thuyết trình tiếng Anh trước đối tác nước ngoài trong 3 tháng nữa"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Bị giao dự án của khách Úc, hoảng quá phải tìm chỗ luyện nói gấp. Mình mang luôn slide công ty lên lớp nhờ giáo viên luyện cường độ cao. Tuần trước báo cáo mượt mà, ông khách gật gù hiểu hết ý tưởng.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Thuyết trình thành công dự án quốc tế
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 3. Cambridge -->
+                <div class="sp2-card" data-category="cambridge">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=150&h=150&fit=crop" alt="BT" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Chị Bích Trâm</div>
+                            <div class="sp2-role">Mẹ bé My (10 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-cam">Cambridge Base</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Con thi Movers 2 lần rồi chưa đạt, tôi mất niềm tin"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Căng thẳng vì sắp nộp hồ sơ chuyển cấp mà chứng chỉ chưa cầm được trên tay. May mà thầy cô kèm sát từng kỹ năng, dò từng lỗi sai nhỏ nhất. Đợt này nhận băng 15 khiên mẹ rớt nước mắt luôn.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Đậu Movers 15 khiên sau 2 lần thi rớt
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 4. Kids -->
+                <div class="sp2-card" data-category="kids">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop" alt="ML" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Chị Mai Lan</div>
+                            <div class="sp2-role">Mẹ bé Bảo (8 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-kids">Core Speaking</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Con học điểm cao nhưng không dám nói, rất nhút nhát"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Ở trường điểm 9 điểm 10 mà đi du lịch nhờ hỏi đường thì lắc đầu trốn. Sang SOL học được 2 khóa, hôm bữa vô quán cà phê tự động chạy ra order bằng tiếng Anh với bạn nhân viên Tây, mẹ đứng hình luôn.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Tự tin gọi món bằng tiếng Anh sau 2 khóa
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 5. Kids -->
+                <div class="sp2-card" data-category="kids">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop" alt="TV" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Chị Thanh Vân</div>
+                            <div class="sp2-role">Mẹ bé Gấu (7 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-kids">SOL Origin</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Con 8 tuổi chưa biết gì, tôi muốn xây nền tảng đúng ngay từ đầu"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Mất gốc từ nhỏ sửa cực lắm nên mình cẩn thận chọn nơi xuất phát. Ở SOL luyện phát âm chuẩn, học vui mà kỷ luật rõ ràng. Con tự lấy sách nhẩm bài, phát âm chữ 's' với 't' tây hơn cả mẹ chớ đùa.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Phát âm chuẩn xác, yêu thích bài học
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 6. VSTEP -->
+                <div class="sp2-card" data-category="vstep">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&h=150&fit=crop" alt="HP" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Hoàng Phát</div>
+                            <div class="sp2-role">Sinh viên Bách Khoa</div>
+                        </div>
+                        <div class="sp2-tag tag-vstep">Luyện thi VSTEP</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Còn 2 tháng phải có B2 để xét tốt nghiệp, không biết có kịp không"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Dân kỹ thuật dở ngoại ngữ tột độ, trường đòi B2 mà hoang mang. Đăng ký rẹt khóa luyện cấp tốc ở SOL. Tài liệu cô đọng, đi đúng form đề. Bữa lên web check đậu B2 mà mém khóc giữa sân trường.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Lấy B2 thành công đúng hạn tốt nghiệp
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 7. Adult -->
+                <div class="sp2-card" data-category="adult">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1506863530036-1efed7e2a9b3?w=150&h=150&fit=crop" alt="PU" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Phương Uyên</div>
+                            <div class="sp2-role">Nhân viên HR</div>
+                        </div>
+                        <div class="sp2-tag tag-adult">Elite Express</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Đã học nhiều trung tâm rồi, vẫn không tiến bộ, gần bỏ cuộc"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Đóng tiền lãng phí mấy chỗ, chỗ thì quá đông, chỗ toàn chơi game. SOL dạy đúng trọng tâm người đi làm, sửa lỗi gắt gao. Đây là khóa học đầu tiên mình thấy tiền bỏ ra nó xứng đáng thật sự.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Phỏng vấn ứng viên nước ngoài trơn tru
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 8. Cambridge -->
+                <div class="sp2-card" data-category="cambridge">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop" alt="QV" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Anh Quốc Vinh</div>
+                            <div class="sp2-role">Ba bé Tít (12 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-cam">Cambridge Base</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Nhiều nơi chỉ luyện đề, gặp dạng mới là tắt đài"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Chỗ cũ chỉ cho nhai đề cũ, đổi cấu trúc là con bó tay. Thầy ở SOL dạy kỹ cái gốc từ vựng với ngữ pháp rành rẽ. Đợt thi Flyers vừa rồi con bảo đề lạ nhưng vẫn tự suy luận khoanh được vèo vèo.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Suy luận nhạy bén, nhận Flyers 15 khiên
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 9. Kids -->
+                <div class="sp2-card" data-category="kids">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop" alt="TĐ" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Anh Trọng Đán</div>
+                            <div class="sp2-role">Ba bé Su (11 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-kids">Core Speaking</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Con cứ đọc được nhưng không phản xạ nói được"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Cháu biết từ vựng nhiều mà ráp câu ấp úng mãi. Ở đây thầy cô phản xạ liên tục, hỏi là phải bật ra liền theo nhịp. Mới hơn 4 tháng mà giờ con xem Peppa pig cười ha hả, đâu thèm dòm tới phụ đề nữa.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Xem hoạt hình không cần phụ đề
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 10. Cambridge -->
+                <div class="sp2-card" data-category="cambridge">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop" alt="ND" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Chị Ngọc Dung</div>
+                            <div class="sp2-role">Mẹ bé Bon (14 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-cam">Cambridge Base</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Tôi muốn con có chứng chỉ Cambridge để xét tuyển hồ sơ quốc tế"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Trường mở đợt xét tuyển gắt quá nên căng thẳng não nề. May mà trung tâm vẽ lộ trình chuẩn, cam kết đàng hoàng. Con nhận hẳn bằng KET 135 điểm nộp hồ sơ dư sức, tảng đá đè nặng được gỡ bỏ lúc nào không hay.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Đạt chứng chỉ KET 135 kịp nộp hồ sơ
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 11. VSTEP -->
+                <div class="sp2-card" data-category="vstep">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop" alt="TT" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Thu Thảo</div>
+                            <div class="sp2-role">Nhân viên văn phòng</div>
+                        </div>
+                        <div class="sp2-tag tag-vstep">Luyện thi VSTEP</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Thi VSTEP Speaking 2 lần không đạt, không biết mình sai ở đâu"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Cứ nói là não đóng băng, đứng hình không rặn ra chữ. Lên lớp cô phân tích cách chẻ ý tưởng, nối câu sao cho không vấp váp. Tháng trước đóng thi lại, vượt qua band B1 ngon ơ rinh liền tay.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Vượt qua B1 sau 2 lần thi rớt Speaking
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+                <!-- 12. Kids -->
+                <div class="sp2-card" data-category="kids">
+                    <div class="sp2-card-header">
+                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop" alt="TA" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                        <div class="sp2-user-info">
+                            <div class="sp2-name">Anh Tuấn Anh</div>
+                            <div class="sp2-role">Ba bé Thỏ (9 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-kids">SOL Origin</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Tôi không muốn con bị áp lực nhưng vẫn cần học hiệu quả"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Gia đình ghét ép học vẹt điên cuồng. SOL dùng điệu nhịp lặp lại hay phết, nhớ từ trên lớp chứ tôi chẳng phải kè sát bài vở buổi tối. Hôm nọ xem bài kiểm tra ở lớp con được 9.5 ngon ơ.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Đạt 9.5 điểm dễ dàng không học nhồi sọ
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+            </div>
+
+            <button class="sp2-load-more" id="sp2LoadMore">Xem thêm câu chuyện</button>
         </div>
     </section>
 
@@ -1202,8 +1714,8 @@
             
             <div class="grid-2x2">
                 <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(59, 130, 246, 0.3);">
-                    <div class="card-icon" style="margin-bottom: 15px; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">📋</div>
-                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Lớp học "vàng"</h3>
+                    <div class="card-icon" style="margin-bottom: 15px; font-size: 1.98rem; width: 3.96rem; height: 3.96rem;">📋</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 1.5rem;">Lớp học "vàng"</h3>
                     <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--blue-border); flex-shrink: 0;">&bull;</span> <span>Sĩ số 5&ndash;15 em</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--blue-border); flex-shrink: 0;">&bull;</span> <span>Giáo viên theo sát</span></li>
@@ -1211,8 +1723,8 @@
                     </ul>
                 </div>
                 <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--green-border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(34, 197, 94, 0.3);">
-                    <div class="card-icon" style="margin-bottom: 15px; background-color: #f0fdf4; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">🎮</div>
-                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Học như chơi</h3>
+                    <div class="card-icon" style="margin-bottom: 15px; background-color: #f0fdf4; font-size: 1.98rem; width: 3.96rem; height: 3.96rem;">🎮</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 1.5rem;">Học như chơi</h3>
                     <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--green-border); flex-shrink: 0;">&bull;</span> <span>"Sợ sai" &rarr; "Dám nói"</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--green-border); flex-shrink: 0;">&bull;</span> <span>Thuộc bài ngay tại lớp</span></li>
@@ -1220,8 +1732,8 @@
                     </ul>
                 </div>
                 <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--yellow-border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(234, 179, 8, 0.3);">
-                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fefce8; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">📫</div>
-                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Phụ huynh an tâm</h3>
+                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fefce8; font-size: 1.98rem; width: 3.96rem; height: 3.96rem;">📫</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 1.5rem;">Phụ huynh an tâm</h3>
                     <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--yellow-border); flex-shrink: 0;">&bull;</span> <span>Báo cáo thường xuyên</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--yellow-border); flex-shrink: 0;">&bull;</span> <span>Biết con học gì mỗi ngày</span></li>
@@ -1229,8 +1741,8 @@
                     </ul>
                 </div>
                 <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--red-border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(239, 68, 68, 0.3);">
-                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fef2f2; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">🎤</div>
-                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Môi trường tỏa sáng</h3>
+                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fef2f2; font-size: 1.98rem; width: 3.96rem; height: 3.96rem;">🎤</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 1.5rem;">Môi trường tỏa sáng</h3>
                     <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--red-border); flex-shrink: 0;">&bull;</span> <span>Rèn bản lĩnh sân khấu</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--red-border); flex-shrink: 0;">&bull;</span> <span>Tự tin trước đám đông</span></li>
@@ -1244,9 +1756,48 @@
      <!-- SECTION 7: FORM ĐĂNG KÝ NHẬN VOUCHER -->
      <section id="register-form" class="form-section" style="padding-top: 1rem;">
         <div class="container">
+            <!-- ĐIỂM CHẠM 3: MINI BLOCK TRƯỚC FORM ĐĂNG KÝ -->
+            <div class="sp3-preform">
+                <div class="sp3-title">Hơn 5.000 phụ huynh & học viên đã tin tưởng SOL</div>
+                <div class="sp3-grid">
+                    <div class="sp3-card">
+                        <div class="sp3-card-header">
+                            <div class="sp3-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1; background: none; color: transparent;"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop" alt="KL" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                            <div class="sp3-name">Khánh Linh</div>
+                        </div>
+                        <div class="sp3-quote playfair" style="font-style: italic;">
+                            "Hồi xưa học rào rào mà mở miệng là cứng ngắc. Giờ vô lớp xong tự tin gọi điện check đơn hàng với supplier Trung Quốc luôn rồi."
+                        </div>
+                        <div class="sp3-result">Giao tiếp trôi chảy với đối tác</div>
+                    </div>
+
+                    <div class="sp3-card">
+                        <div class="sp3-card-header">
+                            <div class="sp3-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1; background: none; color: transparent;"><img src="https://images.unsplash.com/photo-1506863530036-1efed7e2a9b3?w=150&h=150&fit=crop" alt="BT" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                            <div class="sp3-name">Chị Bích Trâm</div>
+                        </div>
+                        <div class="sp3-quote playfair" style="font-style: italic;">
+                            "Căng thẳng vì sắp nộp hồ sơ mà chứng chỉ chưa có. Thầy cô kèm sát nên kỳ rồi nhận được băng 15 khiên mẹ rớt nước mắt."
+                        </div>
+                        <div class="sp3-result">Đậu Movers 15 khiên sau 2 lần rớt</div>
+                    </div>
+
+                    <div class="sp3-card">
+                        <div class="sp3-card-header">
+                            <div class="sp3-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1; background: none; color: transparent;"><img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=150&h=150&fit=crop" alt="HP" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"></div>
+                            <div class="sp3-name">Hoàng Phát</div>
+                        </div>
+                        <div class="sp3-quote playfair" style="font-style: italic;">
+                            "Trường đòi B2 mà hoang mang. Luyện cấp tốc đúng form đề, cầm phiếu điểm B2 mém khóc giữa sân trường."
+                        </div>
+                        <div class="sp3-result">Lấy B2 thành công đúng hạn</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-container">
                 <div id="form-wrap">
-                    <h3 class="playfair">ĐĂNG KÝ NHẬN VOUCHER QUÀ TẶNG</h3>
+                    <h3 class="playfair" style="text-align: center; width: 100%; display: block;">ĐĂNG KÝ NHẬN VOUCHER QUÀ TẶNG</h3>
                     <div style="background-color: var(--yellow-border); color: var(--navy); width: 100%; text-align: center; padding: 10px 0; margin-bottom: 20px; font-weight: 700; border-radius: 8px;">
                         🔥 Khai giảng Hè 2026 &middot; Đăng ký trước ngày 31/5/2026
                     </div>
@@ -1508,8 +2059,81 @@
             });
             
             // Set initial active dot
-            dots[0].style.background = 'white';
+            if(dots.length > 0) dots[0].style.background = 'white';
         }
+
+        // SOCIAL PROOF LOGIC
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.sp2-filter-btn');
+            const cards = document.querySelectorAll('.sp2-card');
+            const loadMoreBtn = document.getElementById('sp2LoadMore');
+            let currentFilter = 'all';
+            let isExpanded = false;
+
+            function updateCards() {
+                if(!filterBtns.length) return;
+                let count = 0;
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const isMatch = currentFilter === 'all' || category === currentFilter;
+                    
+                    if (isMatch) {
+                        count++;
+                        if (!isExpanded && count > 6) {
+                            card.style.display = 'none';
+                            card.classList.add('sp-hidden');
+                        } else {
+                            card.style.display = 'flex';
+                            setTimeout(() => card.classList.remove('sp-hidden'), 10);
+                        }
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.add('sp-hidden');
+                    }
+                });
+
+                const totalMatching = Array.from(cards).filter(c => currentFilter === 'all' || c.getAttribute('data-category') === currentFilter).length;
+                if (isExpanded || totalMatching <= 6) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                }
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.getAttribute('data-filter');
+                    isExpanded = false;
+                    updateCards();
+                });
+            });
+
+            if(loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    isExpanded = true;
+                    updateCards();
+                });
+            }
+
+            // AUTO HIGHLIGHT LOGIC
+            let highlightIndex = 0;
+            setInterval(() => {
+                if(!cards.length) return;
+                const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
+                if (visibleCards.length === 0) return;
+                
+                visibleCards.forEach(c => c.classList.remove('sp-highlight'));
+                if (highlightIndex >= visibleCards.length) {
+                    highlightIndex = 0;
+                }
+                visibleCards[highlightIndex].classList.add('sp-highlight');
+                highlightIndex++;
+            }, 4000);
+
+            updateCards();
+        });
     </script>
 </body>
 </html>

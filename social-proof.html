@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Social Proof - SOL English Land</title>
+    <!-- Fonts: DM Sans and Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0A2240;
+            --orange: #F5A623;
+            --cobalt: #1565C0;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .playfair { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        /* -------------------------------------------------------------
+           [1] ĐIỂM CHẠM 1 — MINI QUOTE TRONG HERO SECTION 
+        ------------------------------------------------------------- */
+        .tp1-container {
+            background: #1e3a8a; /* Giả lập nền hero section */
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        .hero-mini-quote {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 16px 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            text-align: left;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .hero-mini-quote-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--orange);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+            box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
+        }
+        .hero-mini-quote-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #ffffff;
+            font-style: italic;
+            position: relative;
+        }
+        .hero-mini-quote-content::before {
+            content: '\201C';
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            left: -18px;
+            top: -12px;
+            line-height: 1;
+        }
+        .hero-mini-quote-author {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 10px;
+            font-style: normal;
+        }
+
+        /* -------------------------------------------------------------
+           [2] ĐIỂM CHẠM 2 — BLOCK TESTIMONIALS ĐẦY ĐỦ 
+        ------------------------------------------------------------- */
+        .sp2-section { padding: 60px 0; background: #fdfdfd; border-radius: 16px; margin-bottom: 40px; }
+        .sp2-header { text-align: center; margin-bottom: 30px; }
+        .sp2-title { font-size: 2.2rem; margin-bottom: 10px; color: var(--navy); }
+        .sp2-subtitle { color: var(--text-muted); font-size: 1.1rem; }
+        
+        .sp2-filter-bar {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 40px;
+        }
+        .sp2-filter-btn {
+            background: #fff; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 30px;
+            font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer;
+            transition: all 0.3s ease; font-family: inherit;
+        }
+        .sp2-filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+        .sp2-filter-btn.active {
+            background: var(--navy); color: #fff; border-color: var(--navy);
+            box-shadow: 0 4px 10px rgba(10, 34, 64, 0.2);
+        }
+
+        .sp2-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 0 20px;
+        }
+        @media (max-width: 991px) { .sp2-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 767px) { .sp2-grid { grid-template-columns: 1fr; } }
+
+        .sp2-card {
+            background: #fff; border: 1px solid #f1f5f9; border-radius: 16px; padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex; flex-direction: column;
+        }
+        .sp2-card.sp-hidden { display: none; }
+        .sp2-card.sp-highlight {
+            border-color: var(--orange); box-shadow: 0 8px 25px rgba(245, 166, 35, 0.15); transform: translateY(-4px);
+        }
+
+        .sp2-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .sp2-avatar {
+            width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
+        }
+        .sp2-user-info { flex-grow: 1; }
+        .sp2-name { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 2px; }
+        .sp2-role { font-size: 0.8rem; color: var(--text-muted); }
+        .sp2-tag { font-size: 0.75rem; font-weight: 700; padding: 6px 10px; border-radius: 6px; white-space: nowrap; }
+
+        .tag-adult { background: #E6F1FB; color: #0C447C; }
+        .tag-kids { background: #E1F5EE; color: #085041; }
+        .tag-cam { background: #FAEEDA; color: #633806; }
+        .tag-vstep { background: #EEEDFE; color: #3C3489; }
+
+        .sp2-pain {
+            background: #f8fafc; padding: 12px 16px; border-radius: 8px; font-size: 0.9rem;
+            color: var(--text-muted); font-style: italic; margin-bottom: 16px;
+            border-left: 3px solid #cbd5e1; display: flex; gap: 8px; align-items: flex-start;
+        }
+        .sp2-pain svg { flex-shrink: 0; margin-top: 2px; color: #94a3b8; }
+
+        .sp2-quote {
+            font-size: 1.05rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px;
+            flex-grow: 1; position: relative; padding-left: 12px;
+        }
+        .sp2-quote::before {
+            content: '\201C'; font-family: 'Playfair Display', serif; font-size: 2.5rem;
+            color: #e2e8f0; position: absolute; left: -10px; top: -5px; line-height: 1;
+        }
+
+        .sp2-result {
+            display: inline-flex; align-items: center; background: #dcfce7; color: #166534;
+            padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+            margin-bottom: 16px; gap: 6px; align-self: flex-start;
+        }
+
+        .sp2-stars { color: var(--orange); font-size: 1rem; letter-spacing: 2px; }
+
+        .sp2-load-more {
+            display: block; margin: 40px auto 0; background: transparent; border: 2px solid var(--navy);
+            color: var(--navy); padding: 12px 32px; border-radius: 30px; font-weight: 700;
+            cursor: pointer; transition: all 0.3s ease; font-size: 1rem;
+        }
+        .sp2-load-more:hover { background: var(--navy); color: #fff; }
+
+        /* -------------------------------------------------------------
+           [3] ĐIỂM CHẠM 3 — MINI BLOCK TRƯỚC FORM ĐĂNG KÝ 
+        ------------------------------------------------------------- */
+        .sp3-preform { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .sp3-title { color: var(--navy); font-weight: 700; font-size: 1.5rem; margin-bottom: 20px; }
+        .sp3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (max-width: 900px) { .sp3-grid { grid-template-columns: 1fr; } }
+        
+        .sp3-card {
+            background: var(--navy); border-radius: 12px; padding: 20px; color: #fff;
+            text-align: left; box-shadow: 0 10px 25px -5px rgba(10,34,64,0.2);
+        }
+        .sp3-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .sp3-avatar {
+            width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+        }
+        .sp3-name { font-weight: 700; font-size: 0.95rem; }
+        .sp3-quote { font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px; color: rgba(255,255,255,0.9); }
+        .sp3-result {
+            display: inline-block; background: rgba(52, 211, 153, 0.2); color: #6ee7b7;
+            padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center; color: var(--navy); margin-bottom: 40px; font-family: 'Playfair Display'">Hệ thống Social Proof Tối ưu hóa chuyển đổi</h1>
+
+    <!-- ==========================================
+         [1] ĐIỂM CHẠM 1: MINI QUOTE HERO SECTION 
+         ========================================== -->
+    <h2 style="color:var(--cobalt)">1. Mini Quote in Hero Section</h2>
+    <div class="tp1-container">
+        
+        <!-- PHIÊN BẢN C (Active): Dành cho phụ huynh muốn con thi Cambridge -->
+        <div class="hero-mini-quote">
+            <div class="hero-mini-quote-avatar">AQ</div>
+            <div class="hero-mini-quote-content">
+                Mừng rớt nước mắt, cuậu cày 4 tháng ở SOL cuối cùng cũng <b>đậu Cambridge Movers với 15 khiên</b>. Trộm vía đổi trung tâm theo kịp lộ trình!
+                <span class="hero-mini-quote-author">— Anh Quốc Quân, ba bé Bin (10 tuổi)</span>
+            </div>
+        </div>
+
+        <!-- PHIÊN BẢN A (A/B Test - Commented out): Dành cho phụ huynh có con nhút nhát -->
+        <!--
+        <div class="hero-mini-quote">
+            <div class="hero-mini-quote-avatar">TT</div>
+            <div class="hero-mini-quote-content">
+                Ngày xưa Ken nhát lắm, lúc nào rụt rè. Mới học SOL 3 tháng mà hôm qua <b>tự tin chào hỏi bác Tây ở siêu thị</b>, vợ chồng tôi bất ngờ quá.
+                <span class="hero-mini-quote-author">— Chị Thu Thảo, mẹ bé Ken (9 tuổi)</span>
+            </div>
+        </div>
+        -->
+
+        <!-- PHIÊN BẢN B (A/B Test - Commented out): Dành cho người lớn đi làm -->
+        <!--
+        <div class="hero-mini-quote">
+            <div class="hero-mini-quote-avatar">TĐ</div>
+            <div class="hero-mini-quote-content">
+                Bị giao dự án Úc, hoảng quá phải tìm chỗ luyện nói gấp. Mình mang luôn slide công ty lên luyện cường độ cao, <b>tuần trước báo cáo mượt mà</b>.
+                <span class="hero-mini-quote-author">— Anh Tiến Đạt, Kỹ sư phần mềm</span>
+            </div>
+        </div>
+        -->
+    </div>
+
+
+    <!-- ==========================================
+         [2] ĐIỂM CHẠM 2: BLOCK TESTIMONIALS ĐẦY ĐỦ 
+         ========================================== -->
+    <h2 style="color:var(--cobalt); margin-top:60px;">2. Block Testimonials Đầy Đủ</h2>
+    <section class="sp2-section">
+        <div class="container">
+            <div class="sp2-header">
+                <h2 class="sp2-title playfair">Phụ huynh & học viên nói gì về SOL?</h2>
+                <p class="sp2-subtitle">Lọc theo nhóm bạn quan tâm để đọc đúng câu chuyện của mình</p>
+            </div>
+            
+            <div class="sp2-filter-bar" id="sp2Filter">
+                <button class="sp2-filter-btn active" data-filter="all">Tất cả</button>
+                <button class="sp2-filter-btn" data-filter="adult">Người lớn</button>
+                <button class="sp2-filter-btn" data-filter="kids">Trẻ em 7–15</button>
+                <button class="sp2-filter-btn" data-filter="cambridge">Cambridge</button>
+                <button class="sp2-filter-btn" data-filter="vstep">VSTEP</button>
+            </div>
+
+            <div class="sp2-grid" id="sp2Grid">
+                
+                <!-- 1. Adult -->
+                <div class="sp2-card" data-category="adult">
+                    <div class="sp2-card-header">\n                        <div class="sp2-avatar" style="padding: 0; overflow: hidden; border: 2px solid #cbd5e1;"><img src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;"></div>\n                        <div class="sp2-user-info">\n                            <div class="sp2-name">Anh Tuấn Anh</div>
+                            <div class="sp2-role">Ba bé Thỏ (9 tuổi)</div>
+                        </div>
+                        <div class="sp2-tag tag-kids">SOL Origin</div>
+                    </div>
+                    <div class="sp2-pain">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        "Tôi không muốn con bị áp lực nhưng vẫn cần học hiệu quả"
+                    </div>
+                    <div class="sp2-quote playfair">
+                        Gia đình ghét ép học vẹt điên cuồng. SOL dùng điệu nhịp lặp lại hay phết, nhớ từ trên lớp chứ tôi chẳng phải kè sát bài vở buổi tối. Hôm nọ xem bài kiểm tra ở lớp con được 9.5 ngon ơ.
+                    </div>
+                    <div class="sp2-result">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Đạt 9.5 điểm dễ dàng không học nhồi sọ
+                    </div>
+                    <div class="sp2-stars">★★★★★</div>
+                </div>
+
+            </div>
+
+            <button class="sp2-load-more" id="sp2LoadMore">Xem thêm câu chuyện</button>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         [3] ĐIỂM CHẠM 3: MINI BLOCK TRƯỚC FORM 
+         ========================================== -->
+    <h2 style="color:var(--cobalt); margin-top:60px;">3. Mini Block Trước Form Đăng Ký</h2>
+    <div class="sp3-preform">
+        <div class="sp3-title">Hơn 5.000 phụ huynh & học viên đã tin tưởng SOL</div>
+        <div class="sp3-grid">
+            
+            <div class="sp3-card">
+                <div class="sp3-card-header">
+                    <div class="sp3-avatar">KL</div>
+                    <div class="sp3-name">Khánh Linh</div>
+                </div>
+                <div class="sp3-quote playfair" style="font-style: italic;">
+                    "Hồi xưa học rào rào mà mở miệng là cứng ngắc. Giờ vô lớp xong tự tin gọi điện check đơn hàng với supplier Trung Quốc luôn rồi."
+                </div>
+                <div class="sp3-result">Giao tiếp trôi chảy với đối tác</div>
+            </div>
+
+            <div class="sp3-card">
+                <div class="sp3-card-header">
+                    <div class="sp3-avatar">BT</div>
+                    <div class="sp3-name">Chị Bích Trâm</div>
+                </div>
+                <div class="sp3-quote playfair" style="font-style: italic;">
+                    "Căng thẳng vì sắp nộp hồ sơ mà chứng chỉ chưa có. Thầy cô kèm sát nên kỳ rồi nhận được băng 15 khiên mẹ rớt nước mắt."
+                </div>
+                <div class="sp3-result">Đậu Movers 15 khiên sau 2 lần rớt</div>
+            </div>
+
+            <div class="sp3-card">
+                <div class="sp3-card-header">
+                    <div class="sp3-avatar">HP</div>
+                    <div class="sp3-name">Hoàng Phát</div>
+                </div>
+                <div class="sp3-quote playfair" style="font-style: italic;">
+                    "Trường đòi B2 mà hoang mang. Luyện cấp tốc đúng form đề, cầm phiếu điểm B2 mém khóc giữa sân trường."
+                </div>
+                <div class="sp3-result">Lấy B2 thành công đúng hạn</div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // FILTER & LOAD MORE LOGIC FOR SECTION 2
+            const filterBtns = document.querySelectorAll('.sp2-filter-btn');
+            const cards = document.querySelectorAll('.sp2-card');
+            const loadMoreBtn = document.getElementById('sp2LoadMore');
+            let currentFilter = 'all';
+            let isExpanded = false;
+
+            function updateCards() {
+                let count = 0;
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const isMatch = currentFilter === 'all' || category === currentFilter;
+                    
+                    if (isMatch) {
+                        count++;
+                        if (!isExpanded && count > 6) {
+                            card.style.display = 'none';
+                            card.classList.add('sp-hidden');
+                        } else {
+                            card.style.display = 'flex';
+                            setTimeout(() => card.classList.remove('sp-hidden'), 10);
+                        }
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.add('sp-hidden');
+                    }
+                });
+
+                // Check load more visibility
+                const totalMatching = Array.from(cards).filter(c => currentFilter === 'all' || c.getAttribute('data-category') === currentFilter).length;
+                if (isExpanded || totalMatching <= 6) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                }
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.getAttribute('data-filter');
+                    isExpanded = false;
+                    updateCards();
+                });
+            });
+
+            loadMoreBtn.addEventListener('click', () => {
+                isExpanded = true;
+                updateCards();
+            });
+
+            // AUTO HIGHLIGHT LOGIC
+            let highlightIndex = 0;
+            setInterval(() => {
+                const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
+                if (visibleCards.length === 0) return;
+                
+                visibleCards.forEach(c => c.classList.remove('sp-highlight'));
+                if (highlightIndex >= visibleCards.length) {
+                    highlightIndex = 0;
+                }
+                visibleCards[highlightIndex].classList.add('sp-highlight');
+                highlightIndex++;
+            }, 4000);
+
+            // Init
+            updateCards();
+        });
+    </script>
+</body>
+</html>
