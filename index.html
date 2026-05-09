@@ -16,7 +16,7 @@
             --navy: #1e3a8a;
             --orange: #eab308;
             --cobalt: #2563eb;
-            --light: #f8fafc;
+            --light: #f1f5f9;
             --white: #ffffff;
             --text-dark: #0f172a;
             --text-muted: #475569;
@@ -612,6 +612,27 @@
             content: ''; position: absolute; top: 3px; left: 3px; width: 10px; height: 10px; background: var(--cobalt); border-radius: 50%;
         }
 
+        /* Specific radio colors */
+        .radio-label.radio-blue { border-left: 4px solid var(--blue-border); }
+        input[type="radio"]:checked + .radio-label.radio-blue { border-color: var(--blue-border); background-color: #eff6ff; color: var(--blue-border); }
+        input[type="radio"]:checked + .radio-label.radio-blue div { border-color: var(--blue-border); }
+        input[type="radio"]:checked + .radio-label.radio-blue div::after { background: var(--blue-border); }
+        
+        .radio-label.radio-green { border-left: 4px solid var(--green-border); }
+        input[type="radio"]:checked + .radio-label.radio-green { border-color: var(--green-border); background-color: #f0fdf4; color: var(--green-border); }
+        input[type="radio"]:checked + .radio-label.radio-green div { border-color: var(--green-border); }
+        input[type="radio"]:checked + .radio-label.radio-green div::after { background: var(--green-border); }
+        
+        .radio-label.radio-yellow { border-left: 4px solid var(--yellow-border); }
+        input[type="radio"]:checked + .radio-label.radio-yellow { border-color: var(--yellow-border); background-color: #fefce8; color: #b45309; }
+        input[type="radio"]:checked + .radio-label.radio-yellow div { border-color: var(--yellow-border); }
+        input[type="radio"]:checked + .radio-label.radio-yellow div::after { background: var(--yellow-border); }
+        
+        .radio-label.radio-red { border-left: 4px solid var(--red-border); }
+        input[type="radio"]:checked + .radio-label.radio-red { border-color: var(--red-border); background-color: #fef2f2; color: var(--red-border); }
+        input[type="radio"]:checked + .radio-label.radio-red div { border-color: var(--red-border); }
+        input[type="radio"]:checked + .radio-label.radio-red div::after { background: var(--red-border); }
+
         .form-disclaimer {
             font-size: 0.875rem;
             color: var(--text-muted);
@@ -986,7 +1007,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title playfair">HỆ THỐNG ĐÀO TẠO TOÀN DIỆN TẠI SOL</h2>
-                <p class="section-subtitle" style="color: var(--red-border); font-weight: 700;">5 chương trình &mdash; 1 phương pháp &mdash; Kết quả thực chất &mdash; Cập nhật tiến độ thường xuyên</p>
+                <p class="section-subtitle" style="color: var(--red-border); font-weight: 700; line-height: 1.5;">5 chương trình &mdash; 1 phương pháp<br>Kết quả thực chất &mdash; Cập nhật tiến độ thường xuyên</p>
             </div>
 
             <div class="courses-grid">
@@ -1020,8 +1041,12 @@
                     <div class="card-header" style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 16px;">
                         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
                             <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0;">🌟</div>
-                            <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; flex-grow: 1;">
-                                <span class="card-tag tag-orange" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700;">7–15 tuổi</span>
+                            <div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-grow: 1; align-content: flex-start;">
+                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">7–15 tuổi</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Thuyết trình - Hùng biện</span>
+                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Các cuộc thi thuyết trình hùng biện</span>
+                                <span class="card-tag tag-yellow" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Vinh danh</span>
+                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Kỹ năng sân khấu</span>
                             </div>
                         </div>
                         <h3 class="card-title playfair" style="margin-bottom: 4px;">Anh văn giao tiếp trẻ em</h3>
@@ -1042,8 +1067,11 @@
                     <div class="card-header" style="border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; margin-bottom: 16px;">
                         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
                             <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0;">📚</div>
-                            <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; flex-grow: 1;">
-                                <span class="card-tag tag-green" style="position: static; padding: 4px 10px; font-size: 0.7rem; line-height: 1.2; font-weight: 700;">7–15 tuổi</span>
+                            <div style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-grow: 1; align-content: flex-start;">
+                                <span class="card-tag tag-green" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">7–15 tuổi</span>
+                                <span class="card-tag tag-cobalt" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Kiến thức AV nền tảng</span>
+                                <span class="card-tag tag-orange" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Toàn diện</span>
+                                <span class="card-tag tag-red" style="position: static; padding: 3px 6px; font-size: 0.72rem; line-height: 1.2; font-weight: 700; text-transform: none;">Thi Starters - Movers - Flyers - KET - PET</span>
                             </div>
                         </div>
                         <h3 class="card-title playfair" style="margin-bottom: 4px;">Đào tạo Anh văn nền tảng cho thanh thiếu nhi</h3>
@@ -1121,14 +1149,15 @@
         <div class="container">
             <div class="section-header" style="margin-bottom: 24px;">
                 <h2 class="section-title playfair">PHỤ HUYNH, HỌC VIÊN ĐÃ TIN TƯỞNG VÀO SOL</h2>
-                <p class="section-subtitle">Vững nền tảng &ndash; Vươn tầm cao</p>
+                <p class="section-subtitle" style="font-weight: 700; color: var(--red-border);">Vững nền tảng &ndash; Vươn tầm cao</p>
             </div>
 
             <div class="grid-2x2">
                 <div class="feature-card bg-cobalt-light">
                     <h3 class="feature-title playfair"><span style="font-size: 1.8rem">🧠</span> Phương Pháp SRM&trade;</h3>
                     <ul class="card-bullets">
-                        <li>SOL Rhythm & React Method&trade;</li>
+                        <li>Độc quyền tại SOL English Land</li>
+                        <li>Môi trường học tập vui vẻ và tương tác</li>
                         <li>Tiếng Anh theo nhịp &mdash; Phản xạ siêu tốc</li>
                         <li>Ghi nhớ sâu ngay tại lớp, không cần học thuộc ở nhà</li>
                     </ul>
@@ -1139,6 +1168,7 @@
                         <li>Hơn 98% học viên đạt 15/15 khiên các chứng chỉ Starters - Movers - Flyers</li>
                         <li>Đậu vào các trường điểm</li>
                         <li>Lấy lại căn bản cho học sinh yếu</li>
+                        <li>Tăng cường năng lực cho học sinh khá, học sinh giỏi</li>
                     </ul>
                 </div>
                 <div class="feature-card bg-green-light">
@@ -1155,6 +1185,8 @@
                         <li>Năng động, hiện đại, tương tác cao</li>
                         <li>Đa dạng Online & Offline</li>
                         <li>Thu hút tập trung &mdash; nâng cao hiệu suất học tập</li>
+                        <li>Chương trình vinh danh tài năng, đạt thành tích cao,....</li>
+                        <li>Chương trình ngoại khóa sôi động, cuốn hút: event, các cuộc thi,...</li>
                     </ul>
                 </div>
             </div>
@@ -1162,39 +1194,55 @@
     </section>
 
     <!-- SECTION 6: MÔI TRƯỜNG SOL -->
-    <section class="section bg-light" style="padding-top: 1rem; padding-bottom: 2rem;">
+    <section class="section bg-light" style="padding-top: 1rem; padding-bottom: 0;">
         <div class="container">
             <div class="section-header" style="margin-bottom: 24px;">
                 <h2 class="section-title playfair" style="font-size: 2.2rem;">PHỤ HUYNH AN TÂM &ndash; CON TỰ TIN &ndash; KẾT QUẢ TỰ HÀO</h2>
             </div>
             
             <div class="grid-2x2">
-                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px;">
-                    <div class="card-icon" style="margin-bottom: 15px;">📋</div>
-                    <h3 class="card-title playfair">Lớp học "vàng"</h3>
-                    <p class="card-desc" style="margin: 0;">Sĩ số 5&ndash;15 em &middot; Giáo viên theo sát &middot; Luyện nói phản xạ</p>
+                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(59, 130, 246, 0.3);">
+                    <div class="card-icon" style="margin-bottom: 15px; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">📋</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Lớp học "vàng"</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--blue-border); flex-shrink: 0;">&bull;</span> <span>Sĩ số 5&ndash;15 em</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--blue-border); flex-shrink: 0;">&bull;</span> <span>Giáo viên theo sát</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--blue-border); flex-shrink: 0;">&bull;</span> <span>Luyện nói phản xạ</span></li>
+                    </ul>
                 </div>
-                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--green-border);">
-                    <div class="card-icon" style="margin-bottom: 15px; background-color: #f0fdf4;">🎮</div>
-                    <h3 class="card-title playfair">Học như chơi</h3>
-                    <p class="card-desc" style="margin: 0;">"Sợ sai" &rarr; "Dám nói" &middot; Thuộc bài ngay tại lớp &middot; Hỏi-Đáp-Phản biện</p>
+                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--green-border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(34, 197, 94, 0.3);">
+                    <div class="card-icon" style="margin-bottom: 15px; background-color: #f0fdf4; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">🎮</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Học như chơi</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--green-border); flex-shrink: 0;">&bull;</span> <span>"Sợ sai" &rarr; "Dám nói"</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--green-border); flex-shrink: 0;">&bull;</span> <span>Thuộc bài ngay tại lớp</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--green-border); flex-shrink: 0;">&bull;</span> <span>Hỏi-Đáp-Phản biện</span></li>
+                    </ul>
                 </div>
-                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--yellow-border);">
-                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fefce8;">📫</div>
-                    <h3 class="card-title playfair">Phụ huynh an tâm</h3>
-                    <p class="card-desc" style="margin: 0;">Báo cáo thường xuyên &middot; Biết con học gì mỗi ngày &middot; Kết quả cao kỳ thi</p>
+                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--yellow-border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(234, 179, 8, 0.3);">
+                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fefce8; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">📫</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Phụ huynh an tâm</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--yellow-border); flex-shrink: 0;">&bull;</span> <span>Báo cáo thường xuyên</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--yellow-border); flex-shrink: 0;">&bull;</span> <span>Biết con học gì mỗi ngày</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--yellow-border); flex-shrink: 0;">&bull;</span> <span>Kết quả cao kỳ thi</span></li>
+                    </ul>
                 </div>
-                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--red-border);">
-                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fef2f2;">🎤</div>
-                    <h3 class="card-title playfair">Môi trường tỏa sáng</h3>
-                    <p class="card-desc" style="margin: 0;">Rèn bản lĩnh sân khấu &middot; Tự tin trước đám đông &middot; Vinh danh tài năng</p>
+                <div class="card" style="align-items: center; text-align: center; padding: 40px 20px; border-top-color: var(--red-border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 0 15px rgba(239, 68, 68, 0.3);">
+                    <div class="card-icon" style="margin-bottom: 15px; background-color: #fef2f2; font-size: 3.96rem; width: 7.92rem; height: 7.92rem;">🎤</div>
+                    <h3 class="card-title playfair" style="margin-bottom: 16px; font-size: 2.75rem;">Môi trường tỏa sáng</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 8px; text-align: left; margin: 0; padding: 0; list-style-type: none; width: 100%; color: var(--text-color);">
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--red-border); flex-shrink: 0;">&bull;</span> <span>Rèn bản lĩnh sân khấu</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--red-border); flex-shrink: 0;">&bull;</span> <span>Tự tin trước đám đông</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 6px;"><span style="color: var(--red-border); flex-shrink: 0;">&bull;</span> <span>Vinh danh tài năng</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
      <!-- SECTION 7: FORM ĐĂNG KÝ NHẬN VOUCHER -->
-     <section id="register-form" class="form-section">
+     <section id="register-form" class="form-section" style="padding-top: 1rem;">
         <div class="container">
             <div class="form-container">
                 <div id="form-wrap">
@@ -1217,36 +1265,35 @@
                             <div class="radio-group">
                                 <div>
                                     <input type="radio" id="course1" name="course" value="Elite Express" hidden required>
-                                    <label for="course1" class="radio-label">
+                                    <label for="course1" class="radio-label radio-blue">
                                         <div style="width: 20px; height: 20px; border: 2px solid #cbd5e1; border-radius: 50%; display: inline-block; position: relative; flex-shrink: 0;"></div>
-                                        <span>Elite Express (Giao tiếp người lớn - SRM)</span>
+                                        <span><strong style="color: var(--blue-border);">Elite Express</strong> (Giao tiếp người lớn - SRM)</span>
                                     </label>
                                 </div>
                                 <div>
                                     <input type="radio" id="course2" name="course" value="Core Speaking" hidden>
-                                    <label for="course2" class="radio-label">
+                                    <label for="course2" class="radio-label radio-green">
                                         <div style="width: 20px; height: 20px; border: 2px solid #cbd5e1; border-radius: 50%; display: inline-block; position: relative; flex-shrink: 0;"></div>
-                                        <span>Core Speaking (Giao tiếp trẻ em - SRM)</span>
+                                        <span><strong style="color: var(--green-border);">Core Speaking</strong> (Giao tiếp trẻ em - SRM)</span>
                                     </label>
                                 </div>
                                 <div>
                                     <input type="radio" id="course3" name="course" value="SOL Origin" hidden>
-                                    <label for="course3" class="radio-label">
+                                    <label for="course3" class="radio-label radio-yellow">
                                         <div style="width: 20px; height: 20px; border: 2px solid #cbd5e1; border-radius: 50%; display: inline-block; position: relative; flex-shrink: 0;"></div>
-                                        <span>SOL Origin (Nền tảng tiếng Anh 7&ndash;15 tuổi)</span>
+                                        <span><strong style="color: var(--yellow-border);">SOL Origin</strong> (Nền tảng tiếng Anh 7&ndash;15 tuổi)</span>
                                     </label>
                                 </div>
                                 <div>
                                     <input type="radio" id="course4" name="course" value="Cambridge Base" hidden>
-                                    <label for="course4" class="radio-label">
+                                    <label for="course4" class="radio-label radio-red">
                                         <div style="width: 20px; height: 20px; border: 2px solid #cbd5e1; border-radius: 50%; display: inline-block; position: relative; flex-shrink: 0;"></div>
-                                        <span>Cambridge Base (Cambridge Starters &rarr; KET/PET)</span>
+                                        <span><strong style="color: var(--red-border);">Cambridge Base</strong> (Cambridge Starters &rarr; KET/PET)</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-submit">🎁 Đăng ký nhận Voucher ngay</button>
-                        <p class="form-disclaimer">Thông tin của bạn được bảo mật tuyệt đối.</p>
+                        <button type="submit" class="btn btn-submit btn-pulse">🎁 Đăng ký nhận Voucher ngay</button>
                     </form>
                 </div>
             </div>
